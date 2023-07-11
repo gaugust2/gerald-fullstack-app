@@ -22,6 +22,12 @@ gtaRouter.get('/weapons/:name', async (request,response) => {
     })
 })
 
+gtaRouter.get('/weapons', async(request, response) => {
+    const objects = await database.collection('gta-weapons').find({}).toArray()
+    const weaponNames = objects.map(object => object.name)
+    response.json(weaponNames)
+})
+
 gtaRouter.get('/vehicles/:name', async (request, response) => {
     const vehicle = request.params.name
 
@@ -32,6 +38,12 @@ gtaRouter.get('/vehicles/:name', async (request, response) => {
             response.json(data)
         }
     })
+})
+
+gtaRouter.get('/vehicles', async(request, response) => {
+    const objects = await database.collection('gta-vehicles').find({}).toArray()
+    const vehiclesNames = objects.map(object => object.vehicle)
+    response.json(vehiclesNames)
 })
 
 //Initial post method for formatting and entering JSON into database
