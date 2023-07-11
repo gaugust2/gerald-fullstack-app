@@ -1,6 +1,4 @@
 const championRouter = require('express').Router()
-const config = require('../utils/config')
-const mongoose = require('mongoose')
 const Champion = require('../models/champion')
 
 championRouter.get('/', async (request, response) => {

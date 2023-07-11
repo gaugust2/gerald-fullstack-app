@@ -1,6 +1,5 @@
 const gtaRouter = require('express').Router()
-const config = require('../utils/config')
-const mongoose = require('mongoose')
+const Vehicle = require('../models/gtaVehicle')
 const Weapon = require('../models/gtaWeapon')
 
 gtaRouter.get('/weapons/:name', async (request,response) => {
@@ -15,26 +14,20 @@ gtaRouter.get('/weapons', async(request, response) => {
 
     const weaponNames = objects.map(object => object.name)
     response.json(weaponNames)
-
-
 })
 
 gtaRouter.get('/vehicles/:name', async (request, response) => {
     const vehicle = request.params.name
 
-    database.collection('gta-vehicles').findOne({vehicle:vehicle}, function (error, data) {
-        if (error) {
-            response.send(error)
-        } else {
-            response.json(data)
-        }
-    })
+    const object = await Vehicle.findOne({vehicle:vehicle})
+    response.json(object)
 })
 
 gtaRouter.get('/vehicles', async(request, response) => {
-    const objects = await database.collection('gta-vehicles').find({}).toArray()
-    const vehiclesNames = objects.map(object => object.vehicle)
-    response.json(vehiclesNames)
+    const objects = await Vehicle.find({})
+
+    const vehicleNames = objects.map(object => object.vehicle)
+    response.json(vehicleNames)
 })
 
 //Initial post method for formatting and entering JSON into database
