@@ -28,9 +28,6 @@ championRouter.get('/:name', async (request, response) => {
         }
     })
 })
-//Most likely update the collection to store lowercase values of the names
-//Not that important
-
 
 //Delete this post method later
 //This function is for inserting a whole json document into database
