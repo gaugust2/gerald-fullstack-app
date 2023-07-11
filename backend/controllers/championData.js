@@ -38,7 +38,7 @@ championRouter.get('/:name', async (request, response) => {
         database.collection('champions').insertOne(element, function (error, data) {
 
         })
-    });
+    })
     
 })
 

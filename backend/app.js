@@ -10,7 +10,7 @@ const mongoose = require('mongoose')
 const bookRouter = require('./controllers/bookData')
 const gtaRouter = require('./controllers/gtaData')
 
-app.use(express.json())
+app.use(express.json())//Add {limit: '50mb'} inside when entering large json files
 app.use(cors())
 app.use(middleware.requestLogger)
 //Important that requestlogger is used before using the weatherRouter

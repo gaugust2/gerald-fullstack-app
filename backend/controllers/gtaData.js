@@ -10,7 +10,7 @@ database.once('connected', () => {
     console.log('Database Connected');
 })
 
-gtaRouter.get('/:name', async (request,response) => {
+gtaRouter.get('/weapons/:name', async (request,response) => {
     const name = request.params.name
 
     database.collection('gta-weapons').findOne({name:name}, function (error, data) {
@@ -22,7 +22,19 @@ gtaRouter.get('/:name', async (request,response) => {
     })
 })
 
-//Initial post method for formatting and entering data into database
+gtaRouter.get('/vehicles/:name', async (request, response) => {
+    const vehicle = request.params.name
+
+    database.collection('gta-vehicles').findOne({vehicle:vehicle}, function (error, data) {
+        if (error) {
+            response.send(error)
+        } else {
+            response.json(data)
+        }
+    })
+})
+
+//Initial post method for formatting and entering JSON into database
 gtaRouter.post('/', async (request, response) => {
     const result = Object.values(request.body)
     console.log(Object.keys(request.body)[0]) //This gives the name of the element
@@ -34,8 +46,19 @@ gtaRouter.post('/', async (request, response) => {
 
         })
         i++
-    });
+    })
     
+})
+
+//Initial post method for entering vehicles json into database
+gtaRouter.post('/vehicles', async (request, response) => {
+    const result = Object.values(request.body)
+
+    result.forEach(element => {
+        database.collection('gta-vehicles').insertOne(element, function (error, data) {
+
+        })
+    })
 })
 
 module.exports = gtaRouter
