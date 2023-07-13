@@ -1,0 +1,67 @@
+.dots-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: black;
+    margin-right: 2px;
+    border-radius: 50%;
+  }
+  
+  .dot-1 {
+    animation: blink-1 2.4s infinite;
+  }
+  
+  .dot-2 {
+    animation: blink-2 2.4s infinite;
+    animation-delay: 0.8s;
+  }
+  
+  .dot-3 {
+    animation: blink-3 2.4s infinite;
+    animation-delay: 1.6s;
+  }
+  
+  @keyframes blink-1 {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes blink-2 {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes blink-3 {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+span{
+    word-spacing: 1px;
+}
