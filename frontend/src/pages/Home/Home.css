@@ -1,8 +1,31 @@
 .home {
     text-align: center;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 100%;
+
+    background-image: url('../../../public/242277.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    height: 100%;
+    width: 100%;
+}
+
+h5{
+    text-align:left;
+    margin-left: 15px;
+    color: white;
     margin-top: 10px;
+}
+
+h4{
+    text-align:left;
+    margin-left: 15px;
+    color: white;
 }
 
 p{
     line-height: 2;
+    color: white;
 }
