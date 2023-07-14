@@ -1,0 +1,22 @@
+.root-div{
+    background-color: gray;
+    padding-top: 10px;
+    padding-bottom: 100%;
+
+    font-family: 'Courier New', monospace;
+
+}
+
+h3{
+    text-align: left;
+    margin-top: 1px;
+    margin-left: 10px;
+}
+
+.row{
+    margin-top: 50px;
+}
+
+.card-body p{
+    color: black;
+}

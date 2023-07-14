@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 
 import Home from '../pages/Home/Home'
+import MiniProjects from '../pages/MiniProjects/MiniProjects';
 
 const NavigationBar = () => {
   return (
@@ -16,7 +17,7 @@ const NavigationBar = () => {
         <Container>
           <Navbar.Brand as={Link} to="/">Home</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/notes">Notes</Nav.Link>
+            <Nav.Link as={Link} to="/miniprojects">Mini Projects</Nav.Link>
             <Nav.Link as={Link} to="users">Users</Nav.Link>
           </Nav>
         </Container>
@@ -24,7 +25,7 @@ const NavigationBar = () => {
 
 
         <Routes>
-          <Route path="/notes" element={<h2>hello notes</h2>} />
+          <Route path="/miniprojects" element={<MiniProjects/>} />
           <Route path="/users" element={<h2>hello users</h2>} />
           <Route path="/" element={<Home />} />
         </Routes>

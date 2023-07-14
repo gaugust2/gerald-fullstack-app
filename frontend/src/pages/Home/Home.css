@@ -4,7 +4,7 @@
     padding-top: 10px;
     padding-bottom: 100%;
 
-    background-image: url('../../../public/242277.jpg');
+    background-image: url('https://sample-fullstack-bucket.s3.us-east-2.amazonaws.com/242277.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
@@ -32,8 +32,3 @@ p{
     line-height: 2;
     color: white;
 }
-
-.dots-container {
-    display: flex;
-    align-items: center;
-  }
