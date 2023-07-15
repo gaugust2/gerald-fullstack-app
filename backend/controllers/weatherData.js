@@ -2,13 +2,20 @@ const weatherRouter = require('express').Router()
 const config = require('../utils/config')
 
 weatherRouter.get('/:city', async (request, response) => {
-    const city = request.params.city
-    const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${config.OPENWEATHER_API_KEY}`)
-    const weatherData = await weather.json()
-
-
-    const filteredData = filteredWeatherData(weatherData)
-    response.json(filteredData)
+    try {
+        const city = request.params.city
+        const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${config.OPENWEATHER_API_KEY}`)
+        const weatherData = await weather.json()
+    
+        if (weatherData.cod === '404') {
+          response.status(404).json({ error: 'City not found' });
+        } else {
+          const filteredData = filteredWeatherData(weatherData)
+          response.json(filteredData)
+        }
+      } catch (error) {
+        response.status(500).json({ error: 'Internal server error' });
+      }
 })
 
 const filteredWeatherData = (data) => {

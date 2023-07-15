@@ -5,3 +5,26 @@
     background-color:skyblue;
     height: 81vh;
 }
+
+table {
+    height: 100%;
+}
+
+thead th{
+    width: 30%;
+}
+
+
+.weather-img{
+    padding-left: 40%;
+    width: 100%;
+    height: 100%;
+}
+
+.weather-div{
+    display: flex;
+}
+
+button{
+    border: none;
+}
