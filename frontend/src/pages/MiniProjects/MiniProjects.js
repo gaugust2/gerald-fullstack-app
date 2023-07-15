@@ -13,7 +13,6 @@ const MiniProjects = () => {
                                 <h4 class="card-title">Weather app</h4>
                                 <p class="card-text">Enter the name of a city and see up-to-date weather data. The icon is a visual for the weather condition.</p>
                             </div>
-
                             <img class="card-img-bottom" src="https://sample-fullstack-bucket.s3.us-east-2.amazonaws.com/WeatherApp-Screenshot.png" alt="Card cap"></img>
                         </a>
                     </div>
