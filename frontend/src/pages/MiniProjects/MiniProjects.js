@@ -2,7 +2,7 @@ import './MiniProjects.css'
 
 const MiniProjects = () => {
     return (
-        <div className="root-div">
+        <div className="root-div-projects">
             <h3>This is a list of all the little backend projects I have worked on so far:</h3>
 
             <div class="row justify-content-around">
