@@ -40,16 +40,15 @@ const WeatherData = ({ data }) => {
             <div className="col-sm-5 d-flex align-items-center justify-content-center">
                 <img className="weather-img" src={`https://openweathermap.org/img/wn/${data.icon}@2x.png`} alt="icon" />
             </div>
-
-
         </div>
-
     )
 }
 
 const WeatherApp = () => {
     const [cityName, setCityName] = useState('')
     const [cityData, setCityData] = useState('')
+    const [toggleData, setToggleData] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
 
     const handleNameChange = (event) => {
         setCityName(event.target.value)
@@ -60,12 +59,16 @@ const WeatherApp = () => {
 
         weatherService.getData(cityName)
             .then(response => {
+                setToggleData(true)
                 console.log(response.data)
                 setCityData(response.data)
             }).catch(error => {
                 console.log(error)
+                setErrorMessage(`${error.message}. Make you you spell the city name correctly, and that the city is somewhat known.`)
+                setToggleData(false)
             })
     }
+
 
     return (
         <div className="root-div-weather">
@@ -75,9 +78,12 @@ const WeatherApp = () => {
                 <input type="text" onChange={handleNameChange}></input>
                 <button type="submit">Submit</button>
             </form><br />
-            <WeatherData data={cityData} />
+            {toggleData ? <WeatherData data={cityData} /> : (errorMessage)}
+
         </div>
     )
+
+
 }
 
 export default WeatherApp
