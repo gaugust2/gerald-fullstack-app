@@ -12,6 +12,7 @@ import Home from './pages/Home/Home'
 import MiniProjects from './pages/MiniProjects/MiniProjects';
 import WeatherApp from './pages/WeatherApp/WeatherApp';
 import Footer from './components/Footer/Footer';
+import BookApp from './pages/BookApp/BookApp';
 
 const NavigationBar = () => {
   return (
@@ -28,6 +29,7 @@ const NavigationBar = () => {
 
 
         <Routes>
+          <Route path="/bookapp" element={<BookApp/>}/>
           <Route path="/weatherapp" element={<WeatherApp/>}/>
           <Route path="/miniprojects" element={<MiniProjects/>} />
           <Route path="/users" element={<h2>hello users</h2>} />

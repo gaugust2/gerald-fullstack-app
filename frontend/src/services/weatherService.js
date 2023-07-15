@@ -5,4 +5,5 @@ const getData = (name) => {
     return axios.get(`${baseUrl}/${name}`)
   }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {getData}

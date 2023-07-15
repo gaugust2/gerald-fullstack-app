@@ -19,11 +19,13 @@ const MiniProjects = () => {
                 </div>
                 <div class="col-sm-5">
                     <div class="card">
-                        <div class="card-body">
+                        <a href="/bookapp">
+                            <div class="card-body">
 
-                            <h5 class="card-title">Book app</h5>
-                            <h4>Book body</h4>
-                        </div>
+                                <h5 class="card-title">Book app</h5>
+                                <h4>Book body</h4>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>

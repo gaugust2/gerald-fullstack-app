@@ -32,8 +32,8 @@ const WeatherApp = () => {
 
     return (
         <div className="root-div-weather">
+            <h1>Welcome to my Weather App</h1><br/>
             <form onSubmit={showData}>
-                <h1>Welcome to my Weather App</h1><br/>
                 <label>Enter a city name:</label>
                 <input type="text" onChange={handleNameChange}></input>
                 <button type="submit">Submit</button>
