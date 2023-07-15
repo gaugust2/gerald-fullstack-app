@@ -14,21 +14,21 @@
     font-family: 'Courier New', monospace;
 }
 
-h5{
+.home h5{
     text-align:left;
     margin-left: 15px;
     color: white;
     margin-top: 1px;
 }
 
-h4{
+.home h4{
     text-align:left;
     margin-left: 15px;
     color: white;
     margin-bottom: 3%;
 }
 
-p{
+.home p{
     line-height: 2;
     color: white;
 }

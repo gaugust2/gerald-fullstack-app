@@ -1,0 +1,12 @@
+.root-div-books{
+    padding-top: 1%;
+    padding-left: 2%;
+    height: 81vh;
+    box-sizing: border-box;
+
+    font-family: 'Times New Roman', serif;
+}
+
+.root-div-books p{ 
+    color: black;
+}
