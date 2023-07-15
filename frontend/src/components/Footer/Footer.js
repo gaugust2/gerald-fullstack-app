@@ -3,7 +3,7 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <footer class="footer">
+        <footer className="footer">
             <p><i>Check out my Github or Linkedin profiles down below</i></p>
             <div>
                 <FooterButton link="https://github.com/gaugust2" text="Github" />

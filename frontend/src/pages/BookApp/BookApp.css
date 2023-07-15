@@ -1,7 +1,7 @@
 .root-div-books{
     padding-top: 1%;
     padding-left: 2%;
-    height: 81vh;
+    height: 100vh;
     box-sizing: border-box;
 
     font-family: 'Times New Roman', serif;
@@ -9,4 +9,13 @@
 
 .root-div-books p{ 
     color: black;
+}
+
+label{
+    margin-right: 1%;
+}
+
+button{
+    margin-left: 0.5%;
+    border: black;
 }

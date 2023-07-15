@@ -14,7 +14,8 @@ bookRouter.post('/names', async (request, response) => {
     const objects = parsed.map(object => {
         return {
             id: object.id,
-            name: object.volumeInfo.title
+            name: object.volumeInfo.title,
+            author: object.volumeInfo.authors[0]
         }
     })
     
