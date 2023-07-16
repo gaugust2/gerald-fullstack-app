@@ -1,6 +1,7 @@
 import './BookApp.css'
 import { useState } from 'react'
 import bookService from '../../services/bookService'
+import BookList from '../../components/Book/BookList'
 
 const BookApp = () => {
     const [titleName, setTitleName] = useState('')
@@ -41,18 +42,7 @@ const BookApp = () => {
 
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
-            {searchData ? 
-            searchData.map(data => {
-                return (
-                    <div>
-                        {data.id}
-                        {data.name}
-                        {data.author}    
-                    </div>
-                )
-            })
-            
-            : null}
+            {searchData ? <div className="table-container"><BookList data={searchData}/></div> : null}
 
 
         </div>
