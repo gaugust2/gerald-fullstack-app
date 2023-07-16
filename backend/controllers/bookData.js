@@ -14,8 +14,9 @@ bookRouter.post('/names', async (request, response) => {
     const objects = parsed.map(object => {
         return {
             id: object.id,
-            name: object.volumeInfo.title,
-            author: object.volumeInfo.authors[0]
+            title: object.volumeInfo.title,
+            subTitle: object.volumeInfo.subtitle,
+            author: object.volumeInfo.authors
         }
     })
     
@@ -29,7 +30,24 @@ bookRouter.get('/:id', async (request, response) => {
     const books = await fetch(`https://www.googleapis.com/books/v1/volumes/${id}?key=${config.BOOKS_API_KEY}`)
     const bookData = await books.json()
 
-    response.json(bookData)
+    const object = {
+        id: bookData.id,
+        title: bookData.volumeInfo.title,
+        subTitle: bookData.volumeInfo.subtitle,
+        author: bookData.volumeInfo.authors,
+        publisher: bookData.volumeInfo.publisher,
+        publishedDate: bookData.volumeInfo.publishedDate,
+        description: bookData.volumeInfo.description,
+        pageCount: bookData.volumeInfo.pageCount,
+        genres: bookData.volumeInfo.categories,
+        averageRating: bookData.volumeInfo.averageRating,
+        ratingsCount: bookData.volumeInfo.ratingsCount,
+        maturityRating: bookData.volumeInfo.maturityRating,
+        imageLink: bookData.volumeInfo.imageLinks.thumbnail,
+        language: bookData.volumeInfo.language
+    }
+
+    response.send(object)
 })
 
 
