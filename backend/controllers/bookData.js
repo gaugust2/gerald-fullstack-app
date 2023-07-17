@@ -43,7 +43,7 @@ bookRouter.get('/:id', async (request, response) => {
         averageRating: bookData.volumeInfo.averageRating,
         ratingsCount: bookData.volumeInfo.ratingsCount,
         maturityRating: bookData.volumeInfo.maturityRating,
-        imageLink: bookData.volumeInfo.imageLinks.thumbnail,
+        imageLink: bookData.volumeInfo.imageLinks?.thumbnail,
         language: bookData.volumeInfo.language
     }
 
