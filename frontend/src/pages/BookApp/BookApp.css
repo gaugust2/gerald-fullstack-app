@@ -1,7 +1,7 @@
 .root-div-books{
     padding-top: 1%;
     padding-left: 2%;
-    height: 100vh;
+    min-height: 100vh;
     box-sizing: border-box;
 
     font-family: 'Times New Roman', serif;
@@ -18,4 +18,15 @@ label{
 button{
     margin-left: 0.5%;
     border: black;
+}
+
+.root-div-books table{
+    height: 80%;
+    width: 90%;
+}
+
+.table-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }

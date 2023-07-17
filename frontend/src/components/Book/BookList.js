@@ -1,8 +1,8 @@
 import BookRow from "./BookRow"
 
-const BookList = ({ data }) => {
+const BookList = ({ data, handleShow }) => {
     return (
-        <table className="table">
+        <table className="table table-hover">
             <thead className="thead-dark">
                 <tr>
                     <th scope="col">Book ID</th>
@@ -13,7 +13,7 @@ const BookList = ({ data }) => {
             </thead>
             <tbody>
                 {data.map(object => {
-                    return <BookRow entry={object} />
+                    return <BookRow entry={object} handleShow={handleShow} />
                 })}
             </tbody>
         </table>
