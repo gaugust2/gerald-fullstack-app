@@ -34,13 +34,13 @@ const BookApp = () => {
             })
     }
 
-    const handleShow = (id) => {
-        setShow(true)
-        bookService.getData(id)
+    const handleShow = async(id) => {
+        await bookService.getData(id)
         .then(response => {
             console.log(response.data)
             setData(response.data)
         })
+        setShow(true)
     }
 
     const handleClose = () => setShow(false)
