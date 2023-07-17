@@ -35,3 +35,11 @@ button{
 .modal{
     font-family: 'Times New Roman', serif;
 }
+
+.modal-image{
+    float: right;
+}
+
+.modal-description{
+    clear: both;
+}

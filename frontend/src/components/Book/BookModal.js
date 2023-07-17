@@ -8,11 +8,12 @@ const BookModal = ({ show, handleClose, data }) => {
                     <Modal.Title>{data.title}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {data.subTitle}<br />
-                    {data.author}<br />
-                    {data.publisher}<br />
-                    <b>Published Date:</b>{data.publishedDate}<br />
-                    <br /><b>Description:</b><br />{data.description}<br />
+                    {data.imageLink && <img className="modal-image" alt="Book Cover" src={data.imageLink}></img>}
+                    {data.subTitle && <div>{data.subTitle}</div>}
+                    <b>Author: </b>{data.author}<br />
+                    <b>Publisher: </b>{data.publisher}<br />
+                    <b>Published Date: </b>{data.publishedDate}<br />
+                    <div className="modal-description"><br /><b>Description:</b><br />{data.description}<br /></div>
                     <br /><b>Page count: </b>{data.pageCount}<br />
                     {data.genres}<br />
                     <br /><b>Average rating: </b>{data.averageRating}<br />
