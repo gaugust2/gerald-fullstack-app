@@ -34,6 +34,7 @@ const WeatherData = ({ data }) => {
                         </tr>
                     </tbody>
                 </table>
+                <h6>This data is retrieved from the Open Weather Map API.</h6>
             </div>
             <WeatherIcon link={data.icon}/>
         </div>
