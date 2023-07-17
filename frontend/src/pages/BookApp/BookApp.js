@@ -38,7 +38,11 @@ const BookApp = () => {
 
     const handleShow = (id) => {
         setShow(true)
-        setData(id)
+        bookService.getData(id)
+        .then(response => {
+            console.log(response.data)
+            setData(response.data)
+        })
     }
 
     const handleClose = () => setShow(false)
@@ -54,7 +58,7 @@ const BookApp = () => {
 
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
-            {searchData ? <div className="table-container"><BookList data={searchData} handleShow={handleShow} /></div> : null}
+            {searchData ? <BookList data={searchData} handleShow={handleShow} /> : null}
 
             {show && <BookModal show={show} handleClose={handleClose} data={data}/>}
         </div>
@@ -64,11 +68,27 @@ const BookApp = () => {
 const BookModal = ({ show, handleClose, data }) => {
     return (
         <div>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} size="lg">
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>{data.title}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>{data}</Modal.Body>
+                <Modal.Body>
+                    {data.subTitle}<br/>
+                    {data.author}<br/>
+                    {data.publisher}<br/>
+                    Published Date:{data.publishedDate}<br/>
+                    <br/>Description:<br/>{data.description}<br/>
+                    <br/>Page count: {data.pageCount}<br/>
+                    {data.genres}<br/>
+                    <br/>Average rating: {data.averageRating}<br/>
+                    Number of ratings: {data.ratingsCount}<br/>
+                    Maturity Rating: {data.maturityRating}<br/>
+                    Language: {data.language}
+
+
+
+
+                </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close

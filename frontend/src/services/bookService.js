@@ -5,4 +5,8 @@ const getBooks = object => {
     return axios.post(`${baseUrl}/names`, object)
 }
 
-export default {getBooks}
+const getData = id => {
+    return axios.get(`${baseUrl}/${id}`)
+}
+
+export default {getBooks, getData}
