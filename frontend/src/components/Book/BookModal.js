@@ -14,8 +14,8 @@ const BookModal = ({ show, handleClose, data }) => {
                     <b>Publisher: </b>{data.publisher}<br />
                     <b>Published Date: </b>{data.publishedDate}<br />
                     <div className="modal-description"><br /><b>Description:</b><br />{removeHtmlTags(data.description)}<br /></div>
-                    <br /><b>Page count: </b>{data.pageCount}<br />
-                    {data.genres}<br />
+                    <br /><b>Page count: </b>{data.pageCount}
+                    {data.genres && <div><b>Genres: </b>{data.genres.map((category, index) => (<div key={index}>{category}</div>))}</div>}<br />
                     <br /><b>Average rating: </b>{data.averageRating}<br />
                     <b>Number of ratings: </b>{data.ratingsCount}<br />
                     <b>Maturity Rating: </b>{data.maturityRating}<br />
