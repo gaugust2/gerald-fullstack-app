@@ -2,7 +2,7 @@ import './BookApp.css'
 import { useState } from 'react'
 import bookService from '../../services/bookService'
 import BookList from '../../components/Book/BookList'
-import { Modal, Button } from "react-bootstrap";
+import BookModal from '../../components/Book/BookModal'
 
 const BookApp = () => {
     const [titleName, setTitleName] = useState('')
@@ -34,8 +34,6 @@ const BookApp = () => {
             })
     }
 
-
-
     const handleShow = (id) => {
         setShow(true)
         bookService.getData(id)
@@ -64,41 +62,5 @@ const BookApp = () => {
         </div>
     )
 }
-
-const BookModal = ({ show, handleClose, data }) => {
-    return (
-        <div>
-            <Modal show={show} onHide={handleClose} size="lg">
-                <Modal.Header closeButton>
-                    <Modal.Title>{data.title}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    {data.subTitle}<br/>
-                    {data.author}<br/>
-                    {data.publisher}<br/>
-                    Published Date:{data.publishedDate}<br/>
-                    <br/>Description:<br/>{data.description}<br/>
-                    <br/>Page count: {data.pageCount}<br/>
-                    {data.genres}<br/>
-                    <br/>Average rating: {data.averageRating}<br/>
-                    Number of ratings: {data.ratingsCount}<br/>
-                    Maturity Rating: {data.maturityRating}<br/>
-                    Language: {data.language}
-
-
-
-
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                </Modal.Footer>
-            </Modal>
-        </div>
-    )
-}
-
-
 
 export default BookApp

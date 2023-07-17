@@ -20,7 +20,7 @@ const BookList = ({ data, handleShow }) => {
                     })}
                 </tbody>
             </table>
-            <h6>This data is retrieved from the Google Books Api.</h6><p> Note that some of the data may be incorrect
+            <h6>This data is retrieved from the Google Books Api.</h6><p> Note that some of the data may be missing
                  or in an irregular format, and that only 10 relevant results are returned for each search.</p>
         </div>
 

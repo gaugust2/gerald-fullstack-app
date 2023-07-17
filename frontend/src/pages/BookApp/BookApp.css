@@ -29,4 +29,9 @@ button{
     align-items: center;
     justify-content: center;
     display: flex;
+    flex-direction: column;
+}
+
+.modal{
+    font-family: 'Times New Roman', serif;
 }
