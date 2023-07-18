@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 import {
   BrowserRouter as Router,
-  Routes, Route, Link
+  Routes, Route, Link, Navigate
 } from 'react-router-dom'
 
 import Home from './pages/Home/Home'
@@ -34,6 +34,7 @@ const NavigationBar = () => {
           <Route path="/miniprojects" element={<MiniProjects/>} />
           <Route path="/users" element={<h2>hello users</h2>} />
           <Route path="/" element={<Home />} />
+          <Route path="*" element={<Navigate to='/' replace />} />
         </Routes>
         <Footer/>
     </Router>
