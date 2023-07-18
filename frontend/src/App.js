@@ -14,7 +14,7 @@ import WeatherApp from './pages/WeatherApp/WeatherApp';
 import Footer from './components/Footer/Footer';
 import BookApp from './pages/BookApp/BookApp';
 
-const NavigationBar = () => {
+const App = () => {
   return (
     <Router>
       <Navbar bg="dark" data-bs-theme="dark" className="bg-body-tertiary">
@@ -38,15 +38,6 @@ const NavigationBar = () => {
         </Routes>
         <Footer/>
     </Router>
-  )
-}
-
-const App = () => {
-
-  return (
-    <div>
-      <NavigationBar />
-    </div>
   )
 }
 

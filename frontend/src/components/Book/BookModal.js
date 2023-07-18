@@ -9,7 +9,7 @@ const BookModal = ({ show, handleClose, data }) => {
                 </Modal.Header>
                 <Modal.Body>
                     {data.imageLink && <img className="modal-image" alt="Book Cover" src={data.imageLink}></img>}
-                    {data.subTitle && <div>{data.subTitle}</div>}
+                    {data.subTitle && <div><b>Subtitle: </b>{data.subTitle}</div>}
                     <b>Author: </b>{data.author}<br />
                     <b>Publisher: </b>{data.publisher}<br />
                     <b>Published Date: </b>{data.publishedDate}<br />
