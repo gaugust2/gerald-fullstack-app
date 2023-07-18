@@ -3,18 +3,25 @@
     padding-top: 10px;
     padding-bottom: 50%;
 
-    font-family: 'Georgia', serif
+    font-family: 'Georgia', serif;
 
+}
+
+.root-div-projects table{
+    width: 85%;
+}
+
+.projects-table-container{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 h3{
     text-align: left;
     margin-top: 1px;
     margin-left: 10px;
-}
-
-.row{
-    margin-top: 50px;
 }
 
 .card-body p{
