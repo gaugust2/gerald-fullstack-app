@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const path = require('path')
 const weatherRouter = require('./controllers/weatherData')
 const championRouter = require('./controllers/championData')
 const logger = require('./utils/logger')
@@ -26,12 +27,23 @@ mongoose.connect(config.MONGODB_LINK)
 app.use(express.json())//Add {limit: '50mb'} inside when entering large json files
 app.use(cors())
 app.use(middleware.requestLogger)
+
+app.use(express.static(path.join(__dirname, 'build')))
+
 //Important that requestlogger is used before using the weatherRouter
 app.use('/api/weather', weatherRouter)
 app.use('/api/champions', championRouter)
 app.use('/api/books', bookRouter)
 app.use('/api/gta', gtaRouter)
 app.use('/api/minecraft', minecraftRouter)
+
+//Very important that the router paths are defined before this next line
+app.get('*', async(request, response) => {
+    response.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
+
+
+
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
