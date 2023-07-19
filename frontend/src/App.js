@@ -9,10 +9,11 @@ import {
 } from 'react-router-dom'
 
 import Home from './pages/Home/Home'
-import Projects from './pages/Projects/Projects';
-import WeatherApp from './pages/WeatherApp/WeatherApp';
-import Footer from './components/Footer/Footer';
-import BookApp from './pages/BookApp/BookApp';
+import Projects from './pages/Projects/Projects'
+import WeatherApp from './pages/WeatherApp/WeatherApp'
+import Footer from './components/Footer/Footer'
+import BookApp from './pages/BookApp/BookApp'
+import About from './pages/About/About'
 
 const App = () => {
   return (
@@ -21,8 +22,8 @@ const App = () => {
         <Container>
           <Navbar.Brand as={Link} to="/">Home</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="projects">Projects</Nav.Link>
-            <Nav.Link as={Link} to="users">Users</Nav.Link>
+            <Nav.Link as={Link} to="/projects">Projects</Nav.Link>
+            <Nav.Link as={Link} to="/about">About</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -32,7 +33,7 @@ const App = () => {
           <Route path="/bookapp" element={<BookApp/>}/>
           <Route path="/weatherapp" element={<WeatherApp/>}/>
           <Route path="/projects" element={<Projects/>} />
-          <Route path="/users" element={<h2>hello users</h2>} />
+          <Route path="/about" element={<About/>} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<Navigate to='/' replace />} />
         </Routes>
