@@ -1,0 +1,11 @@
+.root-div-about{
+    padding-top: 1%;
+    padding-left: 2%;
+
+    background-color: rgb(41, 10, 74);
+    color: white;
+    height: 150vh;
+    width: 100%;
+
+    font-family: 'Courier New', monospace;
+}
