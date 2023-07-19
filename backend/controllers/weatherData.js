@@ -1,3 +1,4 @@
+const fetch = require('node-fetch')
 const weatherRouter = require('express').Router()
 const config = require('../utils/config')
 
