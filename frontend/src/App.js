@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom'
 
 import Home from './pages/Home/Home'
-import MiniProjects from './pages/MiniProjects/MiniProjects';
+import Projects from './pages/Projects/Projects';
 import WeatherApp from './pages/WeatherApp/WeatherApp';
 import Footer from './components/Footer/Footer';
 import BookApp from './pages/BookApp/BookApp';
@@ -21,7 +21,7 @@ const App = () => {
         <Container>
           <Navbar.Brand as={Link} to="/">Home</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/miniprojects">Mini Projects</Nav.Link>
+            <Nav.Link as={Link} to="projects">Projects</Nav.Link>
             <Nav.Link as={Link} to="users">Users</Nav.Link>
           </Nav>
         </Container>
@@ -31,7 +31,7 @@ const App = () => {
         <Routes>
           <Route path="/bookapp" element={<BookApp/>}/>
           <Route path="/weatherapp" element={<WeatherApp/>}/>
-          <Route path="/miniprojects" element={<MiniProjects/>} />
+          <Route path="/projects" element={<Projects/>} />
           <Route path="/users" element={<h2>hello users</h2>} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<Navigate to='/' replace />} />

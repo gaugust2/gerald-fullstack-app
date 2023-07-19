@@ -1,6 +1,6 @@
-import './MiniProjects.css'
+import './Projects.css'
 
-const MiniProjects = () => {
+const Projects = () => {
     return (
         <div className="root-div-projects">
           <h3>This is a list of all the little backend projects I have worked on so far:</h3>
@@ -57,4 +57,4 @@ const MiniProjects = () => {
 
 }
 
-export default MiniProjects
+export default Projects
