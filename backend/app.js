@@ -10,6 +10,7 @@ const mongoose = require('mongoose')
 const bookRouter = require('./controllers/bookData')
 const gtaRouter = require('./controllers/gtaData')
 const minecraftRouter = require('./controllers/minecraftData')
+const basketballRouter = require('./controllers/basketballData')
 
 mongoose.set('strictQuery', false)
 
@@ -32,6 +33,7 @@ app.use('/api/champions', championRouter)
 app.use('/api/books', bookRouter)
 app.use('/api/gta', gtaRouter)
 app.use('/api/minecraft', minecraftRouter)
+app.use('/api/basketball', basketballRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

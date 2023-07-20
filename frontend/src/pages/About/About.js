@@ -23,7 +23,7 @@ const About = () => {
             <h2>Future Projects/Goals/Additions:</h2>
             <ul>
                 <li>Creating tests for frontend and backend</li>
-                <li>Migrating web app to AWS, GCP, or Oracle Cloud</li>
+                <li>Making a mobile-friendly UI</li>
                 <li>Remaking this website in TypeScript</li>
                 <li>Learning and using React Native</li>
                 <li>Using Django/Spring to make an app</li>
@@ -46,7 +46,8 @@ const About = () => {
             <h5><u>Web hosting</u></h5>
             <ul>
                 <li>Images stored on Amazon S3 bucket</li>
-                <li>Web app hosted on <a href="https://render.com/" target="_blank" rel="noopener noreferrer">Render</a></li>
+                <li>Web app hosted on <a href="https://render.com/" target="_blank" rel="noopener noreferrer">Render</a> at <a href="https://gerald-fullstack-app.onrender.com/" target="_blank" rel="noopener noreferrer">https://gerald-fullstack-app.onrender.com/</a></li>
+                <li>Web app also hosted on <a href="https://aws.amazon.com/ec2/" target="_blank" rel="noopener noreferrer">Amazon EC2</a> at <a href="http://ec2-18-222-91-231.us-east-2.compute.amazonaws.com" target="_blank" rel="noopener noreferrer">http://ec2-18-222-91-231.us-east-2.compute.amazonaws.com</a></li>
             </ul>
 
             <h2>Resources:</h2>
