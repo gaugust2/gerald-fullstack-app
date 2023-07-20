@@ -2,10 +2,12 @@
     padding-top: 1%;
     padding-left: 2%;
     box-sizing: border-box;
-    background-color:skyblue;
+    
     height: 81vh;
 
     font-family: 'Gill Sans', sans-serif;
+
+    background-image: linear-gradient(to bottom right,skyblue, rgb(0, 255, 187) )
 
 }
 

@@ -1,0 +1,7 @@
+.root-div-basketball{
+    padding-top: 1%;
+    padding-left: 2%;
+    min-height: 100vh;
+
+    background-image: repeating-linear-gradient(to bottom right,red,white,blue);
+}

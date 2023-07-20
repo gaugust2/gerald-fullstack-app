@@ -14,6 +14,7 @@ import WeatherApp from './pages/WeatherApp/WeatherApp'
 import Footer from './components/Footer/Footer'
 import BookApp from './pages/BookApp/BookApp'
 import About from './pages/About/About'
+import BasketballApp from './pages/BasketballApp/BasketballApp';
 import './App.css'
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/bookapp" element={<BookApp/>}/>
           <Route path="/weatherapp" element={<WeatherApp/>}/>
           <Route path="/projects" element={<Projects/>} />
+          <Route path="/basketballapp" element={<BasketballApp/>}/>
           <Route path="/about" element={<About/>} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<Navigate to='/' replace />} />
