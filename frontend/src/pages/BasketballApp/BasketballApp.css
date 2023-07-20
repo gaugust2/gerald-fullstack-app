@@ -1,7 +1,24 @@
-.root-div-basketball{
+.root-div-basketball {
     padding-top: 1%;
     padding-left: 2%;
     min-height: 100vh;
 
-    background-image: repeating-linear-gradient(to bottom right,red,white,blue);
+    background-image: repeating-linear-gradient(to bottom right, red, white, orange);
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.basketball-form{
+    margin-left: 1%;
+    display: inline;
 }
