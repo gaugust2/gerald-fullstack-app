@@ -35,11 +35,9 @@ const BookApp = () => {
     }
 
     const handleShow = async(id) => {
-        await bookService.getData(id)
-        .then(response => {
-            console.log(response.data)
-            setData(response.data)
-        })
+        const bookResponse = await bookService.getData(id)
+        console.log(bookResponse.data)
+        setData(bookResponse.data)
         setShow(true)
     }
 
