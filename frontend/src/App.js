@@ -14,16 +14,17 @@ import WeatherApp from './pages/WeatherApp/WeatherApp'
 import Footer from './components/Footer/Footer'
 import BookApp from './pages/BookApp/BookApp'
 import About from './pages/About/About'
+import './App.css'
 
 const App = () => {
   return (
     <Router>
-      <Navbar data-bs-theme="dark" className="bg-body-tertiary">
+      <Navbar bg="dark" data-bs-theme="dark" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand as={Link} to="/">Home</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/"><div className="navbar-text">Home</div></Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/projects">Projects</Nav.Link>
-            <Nav.Link as={Link} to="/about">About</Nav.Link>
+            <Nav.Link as={Link} to="/projects"><div className="navbar-text">Projects</div></Nav.Link>
+            <Nav.Link as={Link} to="/about"><div className="navbar-text">About</div></Nav.Link>
           </Nav>
         </Container>
       </Navbar>
