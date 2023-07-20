@@ -33,7 +33,7 @@ basketballRouter.get('/teams', async (request, response) => {
     const teamNames = teamList.data.map(team => {
         return {
             id: team.id,
-            team: team.full_name,
+            name: team.full_name,
             conference: team.conference
         }
     })

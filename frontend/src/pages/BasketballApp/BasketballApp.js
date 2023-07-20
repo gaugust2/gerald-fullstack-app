@@ -1,11 +1,16 @@
 import './BasketballApp.css'
 import { useState } from 'react'
 import basketballService from '../../services/basketballService'
+import ShowPlayers from '../../components/Basketball/ShowPlayers'
+import ShowTeams from '../../components/Basketball/ShowTeams'
 
 const BasketballApp = () => {
     const [playerName, setPlayerName] = useState('')
     const [teamName, setTeamName] = useState('')
     const [playerList, setPlayerList] = useState('')
+    const [teamList, setTeamList] = useState('')
+
+    const [showPlayers, setShowPlayers] = useState(true)
 
     const handlePlayerChange = (event) => {
         setPlayerName(event.target.value)
@@ -17,11 +22,23 @@ const BasketballApp = () => {
 
     const getPlayerNames = (event) => {
         event.preventDefault()
+        setShowPlayers(true)
 
         basketballService.getPlayerNames(playerName)
         .then(response => {
             console.log(response.data)
             setPlayerList(response.data)
+        })
+    }
+
+    const getTeamNames = (event) => {
+        event.preventDefault()
+        setShowPlayers(false)
+
+        basketballService.getTeamNames()
+        .then(response => {
+            console.log(response.data)
+            setTeamList(response.data)
         })
     }
 
@@ -38,13 +55,13 @@ const BasketballApp = () => {
                 <input type="text" placeholder="team" onChange={handleTeamChange}/>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
-            {playerList ? playerList.map(player => {
-                return(
-                    <div>
-                        {player.id} {player.name} {player.team}
-                    </div>
-                )
-                }) : null}
+            <button type="submit" className="btn btn-primary" onClick={getTeamNames}>Get all teams</button>
+
+            {showPlayers ? <ShowPlayers playerList={playerList}/>: <ShowTeams teamList={teamList}/>}
+
+            
+
+            
         </div>
     )
 }
