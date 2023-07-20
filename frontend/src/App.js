@@ -18,7 +18,7 @@ import About from './pages/About/About'
 const App = () => {
   return (
     <Router>
-      <Navbar bg="dark" data-bs-theme="dark" className="bg-body-tertiary">
+      <Navbar data-bs-theme="dark" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand as={Link} to="/">Home</Navbar.Brand>
           <Nav className="me-auto">

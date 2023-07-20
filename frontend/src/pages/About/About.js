@@ -47,7 +47,7 @@ const About = () => {
             <ul>
                 <li>Images stored on Amazon S3 bucket</li>
                 <li>Web app hosted on <a href="https://render.com/" target="_blank" rel="noopener noreferrer">Render</a> at <a href="https://gerald-fullstack-app.onrender.com/" target="_blank" rel="noopener noreferrer">https://gerald-fullstack-app.onrender.com/</a></li>
-                <li>Web app also hosted on <a href="https://aws.amazon.com/ec2/" target="_blank" rel="noopener noreferrer">Amazon EC2</a> at <a href="http://ec2-18-222-91-231.us-east-2.compute.amazonaws.com" target="_blank" rel="noopener noreferrer">http://ec2-18-222-91-231.us-east-2.compute.amazonaws.com</a></li>
+                <li>Web app also hosted on <a href="https://aws.amazon.com/ec2/" target="_blank" rel="noopener noreferrer">Amazon EC2</a> at <a href="http://ec2-3-131-46-221.us-east-2.compute.amazonaws.com" target="_blank" rel="noopener noreferrer">http://ec2-3-131-46-221.us-east-2.compute.amazonaws.com</a></li>
             </ul>
 
             <h2>Resources:</h2>
