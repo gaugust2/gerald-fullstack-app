@@ -65,6 +65,7 @@ const BasketballApp = () => {
         setData(player.data)
         setFirstSelection(false)
         setShowPlayerInfo(true)
+        setShowAverage(false)
 
     }
 
@@ -96,14 +97,15 @@ const BasketballApp = () => {
 
             {showPlayerInfo ? <PlayerDetails data={data} showFunction={getPlayerNames} showAverage={showPlayerAverage} /> : null}
             {showTeamInfo ? <TeamDetails data={data} showFunction={getTeamNames} /> : null}
-            {showAverage ? <PlayerAverage data={data.data[0]} /> : <div>hello world</div>}
+            {showAverage ? <PlayerAverage data={data.data[0]} showFunction={showPlayerData}/> : <div>hello world</div>}
         </div>
     )
 }
 //<PlayerAverage data={data.data[0]}/>
-const PlayerAverage = ({ data }) => {
+const PlayerAverage = ({ data,showFunction }) => {
     return (
         <div className="table-container">
+            <button className="btn btn-lg text-center" onClick={() => showFunction(data.player_id)} ><span><i className="arrow left" ></i></span>-Go back</button><br />
             <table className="table">
                 <thead className="thead-dark">
                     <tr>
