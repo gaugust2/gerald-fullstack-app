@@ -39,6 +39,18 @@ const Projects = () => {
                 <tr className="projects-row">
                   <td>
                     <div className="card mb-5">
+                      <a href="/basketballapp">
+                        <div className="card-body">
+                          <h4 className="card-title">Basketball app</h4>
+                          <p className="card-text">In progress...</p>
+                        </div>
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+                <tr className="projects-row">
+                  <td>
+                    <div className="card mb-5">
                       <a href="/carapp">
                         <div className="card-body">
                           <h4 className="card-title">Car app</h4>
