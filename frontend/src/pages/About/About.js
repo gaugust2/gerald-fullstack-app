@@ -54,6 +54,7 @@ const About = () => {
             <ul>
                 <li>Weather App data: <a href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer">OpenWeatherMap</a></li>
                 <li>Book App data: <a href="https://developers.google.com/books" target="_blank" rel="noopener noreferrer">Google Books API</a></li>
+                <li>Basketball App data: <a href="https://app.balldontlie.io/" target="_blank" rel="noopener noreferrer">balldontlie API</a></li>
                 <li>Learning Material: <a href="https://fullstackopen.com/en/" rel="noopener noreferrer" target="_blank">Full Stack Open</a></li>
             </ul>
         </div>
