@@ -13,7 +13,7 @@ const BasketballApp = () => {
     const [firstSelection, setFirstSelection] = useState(false)
     const [showPlayers, setShowPlayers] = useState(true)
     const [showPlayerInfo, setShowPlayerInfo] = useState(false)
-    const [data, setData] = useState('')
+    const [data, setData] = useState('default')
 
     const handlePlayerChange = (event) => {
         setPlayerName(event.target.value)
@@ -48,16 +48,15 @@ const BasketballApp = () => {
             })
     }
 
-    const showPlayerData = id => {
-        basketballService.getPlayerData(id)
-            .then(response => {
-                console.log(response.data)
-                setData(response.data)
-            })
+    const showPlayerData = async (id) => {
+        const player = await basketballService.getPlayerData(id)
+        setData(player.data)
         setFirstSelection(false)
         setShowPlayerInfo(true)
         setShowPlayers(false)
     }
+
+
 
     return (
         <div className="root-div-basketball">
@@ -69,7 +68,7 @@ const BasketballApp = () => {
             </form>
             <button type="submit" className="btn btn-primary" onClick={getTeamNames}>Get all teams</button>
 
-            <br/><button class="btn btn-lg text-center"><span><i class="arrow left" ></i></span>-Go back</button><br />
+            <br /><button className="btn btn-lg text-center" ><span><i className="arrow left" ></i></span>-Go back</button><br />
 
             {firstSelection && (showPlayers ? <ShowPlayers playerList={playerList} showPlayerData={showPlayerData} /> : <ShowTeams teamList={teamList} />)}
 
