@@ -6,22 +6,24 @@ import ShowTeams from '../../components/Basketball/ShowTeams'
 
 const BasketballApp = () => {
     const [playerName, setPlayerName] = useState('')
-    const [teamName, setTeamName] = useState('')
+    //const [teamName, setTeamName] = useState('')
     const [playerList, setPlayerList] = useState('')
     const [teamList, setTeamList] = useState('')
-
+    const [firstSelection, setFirstSelection] = useState(false)
     const [showPlayers, setShowPlayers] = useState(true)
+    const [data, setData] = useState('')
 
     const handlePlayerChange = (event) => {
         setPlayerName(event.target.value)
     }
 
-    const handleTeamChange = (event) => {
+    /*const handleTeamChange = (event) => {
         setTeamName(event.target.value)
-    }
+    }*/
 
     const getPlayerNames = (event) => {
         event.preventDefault()
+        setFirstSelection(true)
         setShowPlayers(true)
 
         basketballService.getPlayerNames(playerName)
@@ -32,6 +34,7 @@ const BasketballApp = () => {
     }
 
     const getTeamNames = (event) => {
+        setFirstSelection(true)
         event.preventDefault()
         setShowPlayers(false)
 
@@ -42,26 +45,27 @@ const BasketballApp = () => {
         })
     }
 
+    const getPlayerData = id => {
+        basketballService.getPlayerData(id)
+        .then(response => {
+            console.log(response.data)
+            setData(response.data)
+        })
+    }
+
     return (
         <div className="root-div-basketball">
             <h1>Welcome to my Basketball App</h1>
             <button class="btn btn-lg text-center"><span><i class="arrow left" ></i></span>-Go back</button><br/>
-            <label>Search for either a player or a team:</label>
+            <label>Search for either a player or get a full list of current NBA teams:</label>
             <form className="basketball-form" onSubmit={getPlayerNames}>
                 <input type="text" placeholder="player" onChange={handlePlayerChange}/>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
-            <form className="basketball-form">
-                <input type="text" placeholder="team" onChange={handleTeamChange}/>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
             <button type="submit" className="btn btn-primary" onClick={getTeamNames}>Get all teams</button>
 
-            {showPlayers ? <ShowPlayers playerList={playerList}/>: <ShowTeams teamList={teamList}/>}
+            {firstSelection && (showPlayers ? <ShowPlayers playerList={playerList}/>: <ShowTeams teamList={teamList}/>)}
 
-            
-
-            
         </div>
     )
 }
