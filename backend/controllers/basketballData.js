@@ -52,12 +52,14 @@ basketballRouter.get('/teams/:id', async (request, response) => {
 basketballRouter.post('/averages', async (request, response) => {
     const season = request.body.season ? request.body.season : 2022
     const id1 = request.body.id1
+    const name = request.body.name
     const id2 = request.body.id2
 
 
     const data = await fetch(`${config.BASKETBALL_LINK}/season_averages?season=${season}&player_ids[]=${id1}&player_ids[]=${id2}`)
     const averageData = await data.json()
 
+    averageData.data[0]['name'] = name
     response.json(averageData)
 })
 

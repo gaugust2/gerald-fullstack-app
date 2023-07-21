@@ -1,7 +1,8 @@
 const PlayerDetails = ({ data,showFunction,showAverage }) => {
     const object = {
         season: 2022,
-        id1: data.id
+        id1: data.id,
+        name: `${data.first_name} ${data.last_name}`
     }
 
     return (

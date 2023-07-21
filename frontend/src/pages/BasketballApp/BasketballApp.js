@@ -34,6 +34,7 @@ const BasketballApp = () => {
             setShowPlayers(true)
             setShowPlayerInfo(false)
             setShowTeamInfo(false)
+            setShowAverage(false)
 
             basketballService.getPlayerNames(playerName)
                 .then(response => {
@@ -74,7 +75,7 @@ const BasketballApp = () => {
         setShowTeamInfo(true)
     }
 
-    const showPlayerAverage = async(object) => {
+    const showPlayerAverage = async (object) => {
         const average = await basketballService.getPlayerAverage(object)
         setData(average.data)
         setShowAverage(true)
@@ -90,16 +91,117 @@ const BasketballApp = () => {
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
             <button type="submit" className="btn btn-primary" onClick={getTeamNames}>Get all teams</button>
-            <br/><br/>
+            <br /><br />
             {firstSelection && (showPlayers ? <ShowPlayers playerList={playerList} showPlayerData={showPlayerData} /> : <ShowTeams teamList={teamList} showTeamData={showTeamData} />)}
 
-            {showPlayerInfo ? <PlayerDetails data={data} showFunction={getPlayerNames} showAverage={showPlayerAverage}/> : null}
+            {showPlayerInfo ? <PlayerDetails data={data} showFunction={getPlayerNames} showAverage={showPlayerAverage} /> : null}
             {showTeamInfo ? <TeamDetails data={data} showFunction={getTeamNames} /> : null}
-            {showAverage ? <div>{data.data[0].games_played}</div> : null}
+            {showAverage ? <PlayerAverage data={data.data[0]} /> : <div>hello world</div>}
         </div>
     )
 }
+//<PlayerAverage data={data.data[0]}/>
+const PlayerAverage = ({ data }) => {
+    return (
+        <div className="table-container">
+            <table className="table">
+                <thead className="thead-dark">
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Name</th>
+                        <td>{data.name}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">G</th>
+                        <td>{data.games_played}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">MP</th>
+                        <td>{data.min}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">FGM</th>
+                        <td>{data.fgm}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">FGA</th>
+                        <td>{data.fga}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">FG3N)</th>
+                        <td>{data.fg3m}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">FG3A</th>
+                        <td>{data.fg3a}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">FTM</th>
+                        <td>{data.ftm}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">FTA</th>
+                        <td>{data.fta}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">OREB</th>
+                        <td>{data.oreb}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">DREB</th>
+                        <td>{data.dreb}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">REB</th>
+                        <td>{data.reb}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">AST</th>
+                        <td>{data.ast}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">STL</th>
+                        <td>{data.stl}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">BLK</th>
+                        <td>{data.blk}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">TOV</th>
+                        <td>{data.turnover}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">PF</th>
+                        <td>{data.pf}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">PPG</th>
+                        <td>{data.pts}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">FG%</th>
+                        <td>{data.fg_pct}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">FG3%</th>
+                        <td>{data.fg3_pct}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">FT%</th>
+                        <td>{data.ft_pct}</td>
+                    </tr>
+                </tbody>
 
+            </table>
+        </div>
+    )
+}
 
 
 export default BasketballApp
