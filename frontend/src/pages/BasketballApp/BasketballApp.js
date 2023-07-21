@@ -4,6 +4,7 @@ import basketballService from '../../services/basketballService'
 import ShowPlayers from '../../components/Basketball/ShowPlayers'
 import ShowTeams from '../../components/Basketball/ShowTeams'
 import PlayerDetails from '../../components/Basketball/PlayerDetails'
+import TeamDetails from '../../components/Basketball/TeamDetails'
 
 const BasketballApp = () => {
     const [playerName, setPlayerName] = useState('')
@@ -59,13 +60,15 @@ const BasketballApp = () => {
         const player = await basketballService.getPlayerData(id)
         setData(player.data)
         setFirstSelection(false)
+        setShowTeamInfo(false)
         setShowPlayerInfo(true)
-        setShowPlayers(false)
+
     }
 
     const showTeamData = async (id) => {
         const team = await basketballService.getTeamData(id)
         setData(team.data)
+        setShowPlayerInfo(false)
         setFirstSelection(false)
         setShowTeamInfo(true)
     }
@@ -79,7 +82,7 @@ const BasketballApp = () => {
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
             <button type="submit" className="btn btn-primary" onClick={getTeamNames}>Get all teams</button>
-
+            <br/><br/>
             {firstSelection && (showPlayers ? <ShowPlayers playerList={playerList} showPlayerData={showPlayerData} /> : <ShowTeams teamList={teamList} showTeamData={showTeamData} />)}
 
             {showPlayerInfo ? <PlayerDetails data={data} showFunction={getPlayerNames} /> : null}
@@ -88,46 +91,4 @@ const BasketballApp = () => {
     )
 }
 
-const TeamDetails = ({ data, showFunction }) => {
-    return (
-        <div className="table-container">
-            <button className="btn btn-lg text-center" onClick={showFunction} ><span><i className="arrow left" ></i></span>-Go back</button><br />
-            <table className="table">
-                <thead className="thead-dark">
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Data</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Name</th>
-                        <td>{data.full_name}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">ID</th>
-                        <td>{data.id}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Abbreviation</th>
-                        <td>{data.abbreviation}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">City</th>
-                        <td>{data.city}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Conference</th>
-                        <td>{data.conference}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Division</th>
-                        <td>{data.division}</td>
-                    </tr>
-                </tbody>
-
-            </table>
-        </div>
-    )
-}
 export default BasketballApp
