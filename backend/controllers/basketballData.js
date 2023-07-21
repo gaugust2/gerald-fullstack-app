@@ -5,10 +5,17 @@ const { response } = require('../app')
 
 basketballRouter.get('/names/:name', async (request, response) => {
     const input = request.params.name
-    const names = await fetch(`${config.BASKETBALL_LINK}/players?search=${input}`)
-    const nameList = await names.json()
+    const players = await fetch(`${config.BASKETBALL_LINK}/players?search=${input}`)
+    const playerList = await players.json()
 
-    response.json(nameList)
+    const names = playerList.data.map(player => {
+        return {
+            id: player.id,
+            name: `${player.first_name} ${player.last_name}`,
+            team: player.team.full_name
+        }
+    })
+    response.json(names)
 })
 
 basketballRouter.get('/player/:id', async (request, response) => {
@@ -19,11 +26,19 @@ basketballRouter.get('/player/:id', async (request, response) => {
     response.json(playerData)
 })
 
-basketballRouter.get('/teams', async(request, response) => {
+basketballRouter.get('/teams', async (request, response) => {
     const data = await fetch(`${config.BASKETBALL_LINK}/teams`)
     const teamList = await data.json()
 
-    response.json(teamList)
+    const teamNames = teamList.data.map(team => {
+        return {
+            id: team.id,
+            name: team.full_name,
+            conference: team.conference
+        }
+    })
+
+    response.json(teamNames)
 })
 
 basketballRouter.get('/teams/:id', async (request, response) => {
@@ -37,12 +52,21 @@ basketballRouter.get('/teams/:id', async (request, response) => {
 basketballRouter.post('/averages', async (request, response) => {
     const season = request.body.season ? request.body.season : 2022
     const id1 = request.body.id1
+    const name = request.body.name
     const id2 = request.body.id2
- 
+
 
     const data = await fetch(`${config.BASKETBALL_LINK}/season_averages?season=${season}&player_ids[]=${id1}&player_ids[]=${id2}`)
     const averageData = await data.json()
 
+    if(averageData.data[0]) averageData.data[0]['name'] = name
+
+    else{
+        averageData.data = [{
+            name: name,
+            player_id:id1
+        }]
+    }
     response.json(averageData)
 })
 
