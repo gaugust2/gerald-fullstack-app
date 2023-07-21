@@ -1,6 +1,6 @@
-const TeamRow = ({ entry }) => {
+const TeamRow = ({ entry, showTeamData }) => {
     return (
-        <tr>
+        <tr onClick={() => showTeamData(entry.id)}>
             <td>{entry.id}</td>
             <td>{entry.name}</td>
             <td>{entry.conference}</td>

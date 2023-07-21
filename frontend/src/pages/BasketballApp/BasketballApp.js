@@ -13,6 +13,7 @@ const BasketballApp = () => {
     const [firstSelection, setFirstSelection] = useState(false)
     const [showPlayers, setShowPlayers] = useState(true)
     const [showPlayerInfo, setShowPlayerInfo] = useState(false)
+    const [showTeamInfo, setShowTeamInfo] = useState(false)
     const [data, setData] = useState('default')
 
     const handlePlayerChange = (event) => {
@@ -30,6 +31,7 @@ const BasketballApp = () => {
             setFirstSelection(true)
             setShowPlayers(true)
             setShowPlayerInfo(false)
+            setShowTeamInfo(false)
 
             basketballService.getPlayerNames(playerName)
                 .then(response => {
@@ -40,9 +42,11 @@ const BasketballApp = () => {
     }
 
     const getTeamNames = (event) => {
-        setFirstSelection(true)
         event.preventDefault()
+
+        setFirstSelection(true)
         setShowPlayers(false)
+        setShowTeamInfo(false)
 
         basketballService.getTeamNames()
             .then(response => {
@@ -59,8 +63,11 @@ const BasketballApp = () => {
         setShowPlayers(false)
     }
 
-    const showTeamData = async(id) => {
-        
+    const showTeamData = async (id) => {
+        const team = await basketballService.getTeamData(id)
+        setData(team.data)
+        setFirstSelection(false)
+        setShowTeamInfo(true)
     }
 
     return (
@@ -73,11 +80,54 @@ const BasketballApp = () => {
             </form>
             <button type="submit" className="btn btn-primary" onClick={getTeamNames}>Get all teams</button>
 
-            {firstSelection && (showPlayers ? <ShowPlayers playerList={playerList} showPlayerData={showPlayerData} /> : <ShowTeams teamList={teamList} showTeamData={showTeamData}/>)}
+            {firstSelection && (showPlayers ? <ShowPlayers playerList={playerList} showPlayerData={showPlayerData} /> : <ShowTeams teamList={teamList} showTeamData={showTeamData} />)}
 
             {showPlayerInfo ? <PlayerDetails data={data} showFunction={getPlayerNames} /> : null}
+            {showTeamInfo ? <TeamDetails data={data} showFunction={getTeamNames} /> : null}
         </div>
     )
 }
 
+const TeamDetails = ({ data, showFunction }) => {
+    return (
+        <div className="table-container">
+            <button className="btn btn-lg text-center" onClick={showFunction} ><span><i className="arrow left" ></i></span>-Go back</button><br />
+            <table className="table">
+                <thead className="thead-dark">
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Name</th>
+                        <td>{data.full_name}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">ID</th>
+                        <td>{data.id}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Abbreviation</th>
+                        <td>{data.abbreviation}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">City</th>
+                        <td>{data.city}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Conference</th>
+                        <td>{data.conference}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Division</th>
+                        <td>{data.division}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    )
+}
 export default BasketballApp

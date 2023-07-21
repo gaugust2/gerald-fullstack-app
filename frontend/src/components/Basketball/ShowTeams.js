@@ -1,6 +1,6 @@
 import TeamRow from "./TeamRow"
 
-const ShowTeams = ({ teamList }) => {
+const ShowTeams = ({ teamList, showTeamData }) => {
     return (
         <div className="table-container">
             <h5>Click on a row to view that team's information</h5>
@@ -14,7 +14,7 @@ const ShowTeams = ({ teamList }) => {
                 </thead>
                 <tbody>
                     {teamList ? teamList.map(team => {
-                        return <TeamRow entry={team}/>
+                        return <TeamRow entry={team} showTeamData={showTeamData}/>
                     }) : null}
                 </tbody>
             </table>

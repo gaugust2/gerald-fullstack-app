@@ -13,5 +13,9 @@ const getPlayerData = id => {
     return axios.get(`${baseUrl}/player/${id}`)
 }
 
+const getTeamData = id => {
+    return axios.get(`${baseUrl}/teams/${id}`)
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export default {getPlayerNames, getTeamNames, getPlayerData}
+export default {getPlayerNames, getTeamNames, getPlayerData, getTeamData}
