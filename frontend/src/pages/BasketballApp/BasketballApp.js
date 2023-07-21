@@ -16,7 +16,7 @@ const BasketballApp = () => {
     const [showPlayerInfo, setShowPlayerInfo] = useState(false)
     const [showTeamInfo, setShowTeamInfo] = useState(false)
     const [data, setData] = useState('default')
-    const [year, setYear] = useState('')
+    const [year, setYear] = useState(2022)
     const [showAverage, setShowAverage] = useState(false)
 
     const handleYearChange = (event) => {
@@ -67,7 +67,7 @@ const BasketballApp = () => {
         setFirstSelection(false)
         setShowPlayerInfo(true)
         setShowAverage(false)
-
+        setYear(2022)
     }
 
     const showTeamData = async (id) => {

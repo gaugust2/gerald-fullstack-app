@@ -59,7 +59,14 @@ basketballRouter.post('/averages', async (request, response) => {
     const data = await fetch(`${config.BASKETBALL_LINK}/season_averages?season=${season}&player_ids[]=${id1}&player_ids[]=${id2}`)
     const averageData = await data.json()
 
-    averageData.data[0]['name'] = name
+    if(averageData.data[0]) averageData.data[0]['name'] = name
+
+    else{
+        averageData.data = [{
+            name: name,
+            player_id:id1
+        }]
+    }
     response.json(averageData)
 })
 
