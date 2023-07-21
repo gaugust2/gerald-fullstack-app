@@ -8,7 +8,6 @@ import TeamDetails from '../../components/Basketball/TeamDetails'
 
 const BasketballApp = () => {
     const [playerName, setPlayerName] = useState('')
-    //const [teamName, setTeamName] = useState('')
     const [playerList, setPlayerList] = useState('')
     const [teamList, setTeamList] = useState('')
     const [firstSelection, setFirstSelection] = useState(false)
@@ -16,14 +15,16 @@ const BasketballApp = () => {
     const [showPlayerInfo, setShowPlayerInfo] = useState(false)
     const [showTeamInfo, setShowTeamInfo] = useState(false)
     const [data, setData] = useState('default')
+    const [year, setYear] = useState('')
+    const [showAverage, setShowAverage] = useState(false)
+
+    const handleYearChange = (event) => {
+        setYear(event.target.value)
+    }
 
     const handlePlayerChange = (event) => {
         setPlayerName(event.target.value)
     }
-
-    /*const handleTeamChange = (event) => {
-        setTeamName(event.target.value)
-    }*/
 
     const getPlayerNames = (event) => {
         event.preventDefault()
@@ -48,6 +49,8 @@ const BasketballApp = () => {
         setFirstSelection(true)
         setShowPlayers(false)
         setShowTeamInfo(false)
+        setShowAverage(false)
+        setShowPlayerInfo(false)
 
         basketballService.getTeamNames()
             .then(response => {
@@ -60,7 +63,6 @@ const BasketballApp = () => {
         const player = await basketballService.getPlayerData(id)
         setData(player.data)
         setFirstSelection(false)
-        setShowTeamInfo(false)
         setShowPlayerInfo(true)
 
     }
@@ -68,9 +70,15 @@ const BasketballApp = () => {
     const showTeamData = async (id) => {
         const team = await basketballService.getTeamData(id)
         setData(team.data)
-        setShowPlayerInfo(false)
         setFirstSelection(false)
         setShowTeamInfo(true)
+    }
+
+    const showPlayerAverage = async(object) => {
+        const average = await basketballService.getPlayerAverage(object)
+        setData(average.data)
+        setShowAverage(true)
+        setShowPlayerInfo(false)
     }
 
     return (
@@ -85,10 +93,13 @@ const BasketballApp = () => {
             <br/><br/>
             {firstSelection && (showPlayers ? <ShowPlayers playerList={playerList} showPlayerData={showPlayerData} /> : <ShowTeams teamList={teamList} showTeamData={showTeamData} />)}
 
-            {showPlayerInfo ? <PlayerDetails data={data} showFunction={getPlayerNames} /> : null}
+            {showPlayerInfo ? <PlayerDetails data={data} showFunction={getPlayerNames} showAverage={showPlayerAverage}/> : null}
             {showTeamInfo ? <TeamDetails data={data} showFunction={getTeamNames} /> : null}
+            {showAverage ? <div>{data.data[0].games_played}</div> : null}
         </div>
     )
 }
+
+
 
 export default BasketballApp

@@ -17,5 +17,9 @@ const getTeamData = id => {
     return axios.get(`${baseUrl}/teams/${id}`)
 }
 
+const getPlayerAverage = object => {
+    return axios.post(`${baseUrl}/averages`,object)
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export default {getPlayerNames, getTeamNames, getPlayerData, getTeamData}
+export default {getPlayerNames, getTeamNames, getPlayerData, getTeamData, getPlayerAverage}

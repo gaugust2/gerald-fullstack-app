@@ -1,4 +1,9 @@
-const PlayerDetails = ({ data,showFunction }) => {
+const PlayerDetails = ({ data,showFunction,showAverage }) => {
+    const object = {
+        season: 2022,
+        id1: data.id
+    }
+
     return (
         <div className="table-container">
             <button className="btn btn-lg text-center" onClick={showFunction} ><span><i className="arrow left" ></i></span>-Go back</button><br />
@@ -52,6 +57,7 @@ const PlayerDetails = ({ data,showFunction }) => {
                     </tr>
                 </tbody>
             </table>
+            <button onClick={() => showAverage(object)}>Click to view Season Averages for 22-23</button>
         </div>
     )
 }
