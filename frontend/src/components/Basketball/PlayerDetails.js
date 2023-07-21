@@ -1,6 +1,7 @@
-const PlayerDetails = ({ data }) => {
+const PlayerDetails = ({ data,showFunction }) => {
     return (
         <div className="table-container">
+            <button className="btn btn-lg text-center" onClick={showFunction} ><span><i className="arrow left" ></i></span>-Go back</button><br />
             <table className="table">
                 <thead className="thead-dark">
                     <tr>

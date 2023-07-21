@@ -25,15 +25,18 @@ const BasketballApp = () => {
 
     const getPlayerNames = (event) => {
         event.preventDefault()
-        setFirstSelection(true)
-        setShowPlayers(true)
-        setShowPlayerInfo(false)
 
-        basketballService.getPlayerNames(playerName)
-            .then(response => {
-                console.log(response.data)
-                setPlayerList(response.data)
-            })
+        if (playerName) {
+            setFirstSelection(true)
+            setShowPlayers(true)
+            setShowPlayerInfo(false)
+
+            basketballService.getPlayerNames(playerName)
+                .then(response => {
+                    console.log(response.data)
+                    setPlayerList(response.data)
+                })
+        } else setFirstSelection(false)
     }
 
     const getTeamNames = (event) => {
@@ -56,7 +59,9 @@ const BasketballApp = () => {
         setShowPlayers(false)
     }
 
-
+    const showTeamData = async(id) => {
+        
+    }
 
     return (
         <div className="root-div-basketball">
@@ -68,11 +73,9 @@ const BasketballApp = () => {
             </form>
             <button type="submit" className="btn btn-primary" onClick={getTeamNames}>Get all teams</button>
 
-            <br /><button className="btn btn-lg text-center" ><span><i className="arrow left" ></i></span>-Go back</button><br />
+            {firstSelection && (showPlayers ? <ShowPlayers playerList={playerList} showPlayerData={showPlayerData} /> : <ShowTeams teamList={teamList} showTeamData={showTeamData}/>)}
 
-            {firstSelection && (showPlayers ? <ShowPlayers playerList={playerList} showPlayerData={showPlayerData} /> : <ShowTeams teamList={teamList} />)}
-
-            {showPlayerInfo ? <PlayerDetails data={data} /> : null}
+            {showPlayerInfo ? <PlayerDetails data={data} showFunction={getPlayerNames} /> : null}
         </div>
     )
 }
