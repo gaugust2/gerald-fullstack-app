@@ -31,5 +31,8 @@
 
 .table-container {
     text-align: center;
+}
 
+.table-container form{
+    display: flex;
 }

@@ -76,7 +76,8 @@ const BasketballApp = () => {
         setShowTeamInfo(true)
     }
 
-    const showPlayerAverage = async (object) => {
+    const showPlayerAverage = async (event,object) => {
+        event.preventDefault()
         const average = await basketballService.getPlayerAverage(object)
         setData(average.data)
         setShowAverage(true)
@@ -97,15 +98,26 @@ const BasketballApp = () => {
 
             {showPlayerInfo ? <PlayerDetails data={data} showFunction={getPlayerNames} showAverage={showPlayerAverage} /> : null}
             {showTeamInfo ? <TeamDetails data={data} showFunction={getTeamNames} /> : null}
-            {showAverage ? <PlayerAverage data={data.data[0]} showFunction={showPlayerData}/> : <div>hello world</div>}
+            {showAverage ? <PlayerAverage data={data.data[0]} showFunction={showPlayerData} handleYearChange={handleYearChange} showPlayerAverage={showPlayerAverage} year={year}/> : null}
         </div>
     )
 }
 //<PlayerAverage data={data.data[0]}/>
-const PlayerAverage = ({ data,showFunction }) => {
+const PlayerAverage = ({ data, showFunction, handleYearChange, showPlayerAverage, year }) => {
+    const object = {
+        season:parseInt(year),
+        id1:data.player_id,
+        name:data.name
+    }
+
     return (
         <div className="table-container">
             <button className="btn btn-lg text-center" onClick={() => showFunction(data.player_id)} ><span><i className="arrow left" ></i></span>-Go back</button><br />
+            <form className="basketball-form" onSubmit={(event) => showPlayerAverage(event,object)}>
+                <label>Enter a year to view those Season Averages</label>
+                <input type="text" placeholder="year" onChange={handleYearChange} defaultValue={2022}/>
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form><br/>
             <table className="table">
                 <thead className="thead-dark">
                     <tr>

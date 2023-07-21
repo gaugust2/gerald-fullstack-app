@@ -58,7 +58,9 @@ const PlayerDetails = ({ data,showFunction,showAverage }) => {
                     </tr>
                 </tbody>
             </table>
-            <button onClick={() => showAverage(object)}>Click to view Season Averages for 22-23</button>
+            <form onSubmit={(event) => showAverage(event, object)}>
+                <button type="submit">Click to view Season Averages for 22-23</button>
+            </form><br/> 
         </div>
     )
 }
