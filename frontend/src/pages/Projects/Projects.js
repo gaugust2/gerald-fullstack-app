@@ -42,8 +42,11 @@ const Projects = () => {
                       <a href="/basketballapp">
                         <div className="card-body">
                           <h4 className="card-title">Basketball app</h4>
-                          <p className="card-text">In progress...</p>
+                          <p className="card-text">Enter the name of an NBA player and see relevant results(including retired players), 
+                          or see a list of all current NBA teams. Click on players or teams to see additional details, and view a player's 
+                          season averages over the years.</p>
                         </div>
+                        <img className="card-img-bottom" src="https://sample-fullstack-bucket.s3.us-east-2.amazonaws.com/BasketballApp-Screenshot.png" alt="Card cap"/>
                       </a>
                     </div>
                   </td>

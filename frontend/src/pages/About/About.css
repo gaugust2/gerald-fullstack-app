@@ -4,7 +4,7 @@
 
     background-color: rgb(41, 10, 74);
     color: white;
-    height: 150vh;
+    min-height: 175vh;
     width: 100%;
 
     font-family: 'Courier New', monospace;
