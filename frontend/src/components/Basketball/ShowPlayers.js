@@ -2,9 +2,9 @@ import PlayerRow from "./PlayerRow"
 
 const ShowPlayers = ({ playerList }) => {
     return (
-        <div>
+        <div className="table-container">
             <h5>Click on a row to view that player's information</h5>
-            <table className="table-hover">
+            <table className="table table-hover">
                 <thead className="thead-dark">
                     <tr>
                         <th scope="col">Player ID</th>
