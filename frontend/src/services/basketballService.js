@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = '/api/books'
+const baseUrl = '/api/basketball'
 
 const getPlayerNames = input => {
     return axios.get(`${baseUrl}/names/${input}`)
