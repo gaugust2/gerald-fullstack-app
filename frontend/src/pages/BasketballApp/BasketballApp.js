@@ -39,7 +39,6 @@ const BasketballApp = () => {
 
             basketballService.getPlayerNames(playerName)
                 .then(response => {
-                    console.log(response.data)
                     setPlayerList(response.data)
                 })
         } else setFirstSelection(false)
@@ -56,7 +55,6 @@ const BasketballApp = () => {
 
         basketballService.getTeamNames()
             .then(response => {
-                console.log(response.data)
                 setTeamList(response.data)
             })
     }
